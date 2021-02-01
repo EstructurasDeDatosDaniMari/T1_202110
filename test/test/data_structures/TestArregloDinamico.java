@@ -25,7 +25,7 @@ public class TestArregloDinamico {
 
 	@Test
 	public void testArregloDinamico() {
-
+		assertTrue("El arreglo debe haberse creado", arreglo!=null);
 		assertEquals( "La lista de elementos debió crearse vacía.",0, arreglo.darTamano() );
 		assertEquals( "La lista de elementos debe tener el tamaño máximo.", TAMANO,arreglo.darCapacidad() );
 		// TODO

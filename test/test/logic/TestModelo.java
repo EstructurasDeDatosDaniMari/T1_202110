@@ -60,9 +60,7 @@ public class TestModelo {
 	public void testEliminar() {
 		setUp2();
 		modelo.eliminar(""+0);
-		assertEquals("Ese no debería ser el tamaño", CAPACIDAD-1, modelo.darTamano());
 		String elemento=modelo.buscar(""+0);
-		System.out.println(""+elemento);
 		assertNull("No debió haber encontrado ningún elemento", elemento);
 		assertNotEquals("No debió encontrar el elemento",""+0, elemento);
 		// TODO Completar la prueba

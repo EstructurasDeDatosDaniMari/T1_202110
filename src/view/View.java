@@ -30,6 +30,7 @@ public class View
 		
 		public void printModelo(Modelo modelo)
 		{
+			System.out.println(modelo);
 			// TODO implementar
 		}
 }
