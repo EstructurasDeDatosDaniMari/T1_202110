@@ -1,5 +1,6 @@
 package model.data_structures;
 
+
 /**
  * 2019-01-23
  * Estructura de Datos Arreglo Dinamico de Strings.
@@ -74,10 +75,11 @@ public class ArregloDinamico implements IArregloDinamico {
 			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
 			String elemento=null;
 			boolean ya=false;
-			for (int i=0; i<elementos.length && !ya; i++)
+			for (int i=0; i<tamanoAct && !ya; i++)
 			{
 				if (elementos[i].compareTo(dato)==0)
 				{
+					
 					elemento=elementos[i];
 					ya=true;
 				}
@@ -89,6 +91,7 @@ public class ArregloDinamico implements IArregloDinamico {
 		}
 
 		public String eliminar(String dato) {
+			
 			// TODO implementar
 			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
 			String elemento=null;

@@ -25,12 +25,17 @@ public class TestArregloDinamico {
 
 	@Test
 	public void testArregloDinamico() {
+
+		assertEquals( "La lista de elementos debió crearse vacía.",0, arreglo.darTamano() );
+		assertEquals( "La lista de elementos debe tener el tamaño máximo.", TAMANO,arreglo.darCapacidad() );
 		// TODO
 	}
 
 	@Test
 	public void testDarElemento() {
 		setUp2();
+		assertEquals("No es el elemento que está en esa posición",""+0,arreglo.darElemento(0));
+		assertNotNull("Debería haber un elemento en esa posición",arreglo.darElemento(0));
 		// TODO
 	}
 

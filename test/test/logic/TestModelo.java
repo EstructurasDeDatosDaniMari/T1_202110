@@ -30,23 +30,41 @@ public class TestModelo {
 
 	@Test
 	public void testDarTamano() {
+		setUp2();
+		int x=modelo.darTamano();
+		assertEquals("No es el tamaño correcto", CAPACIDAD,x);
 		// TODO
 	}
 
 	@Test
 	public void testAgregar() {
+		
+		modelo.agregar(""+0);
+		assertEquals("No se agregó el elemento", 1,modelo.darTamano());
+		String elemento=modelo.buscar(""+0);
+		assertNotNull("Debió haber encontrado el elemento", elemento);
 		// TODO Completar la prueba
 	}
 
 	@Test
 	public void testBuscar() {
 		setUp2();
+		String elemento=modelo.buscar(""+0);
+		assertNotNull( "Debió haber encontrado el elemento", elemento );
+		assertEquals("No se encontró el elemento correcto",  ""+0, elemento);
+		assertNull( "No debió haber encontrado el elemento", modelo.buscar("12345"));
 		// TODO Completar la prueba
 	}
 
 	@Test
 	public void testEliminar() {
 		setUp2();
+		modelo.eliminar(""+0);
+		assertEquals("Ese no debería ser el tamaño", CAPACIDAD-1, modelo.darTamano());
+		String elemento=modelo.buscar(""+0);
+		System.out.println(""+elemento);
+		assertNull("No debió haber encontrado ningún elemento", elemento);
+		assertNotEquals("No debió encontrar el elemento",""+0, elemento);
 		// TODO Completar la prueba
 		
 	}
