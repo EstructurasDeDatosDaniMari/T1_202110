@@ -68,5 +68,19 @@ public class Modelo {
 		return datos.eliminar(dato);
 	}
 
+	public String toString()
+	{
+		String fragmento="Elementos:";
+		
+		for(int i=0; i<darTamano(); i++)
+		{
+			fragmento+= " ' "+ datos.darElemento(i)+" ',";
+		}
+		
+		fragmento.substring(0, fragmento.length() - 1);
+		
+		return fragmento;
+		
+	}
 
 }
