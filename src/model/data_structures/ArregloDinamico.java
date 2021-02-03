@@ -9,7 +9,7 @@ package model.data_structures;
  * @param <T>
  *
  */
-public class ArregloDinamico<T> implements IArregloDinamico<T> {
+public class ArregloDinamico<T extends Comparable<T>> implements IArregloDinamico<T> {
 		/**
 		 * Capacidad maxima del arreglo
 		 */
@@ -79,7 +79,8 @@ public class ArregloDinamico<T> implements IArregloDinamico<T> {
 			boolean ya=false;
 			for (int i=0; i<tamanoAct && !ya; i++)
 			{
-				if (elementos[i].equals(dato))
+
+				if (elementos[i].compareTo(dato)==0)
 				{
 					
 					elemento=elementos[i];
@@ -104,7 +105,8 @@ public class ArregloDinamico<T> implements IArregloDinamico<T> {
 		
 			for (int i=0; i< copia.length && !ya; i++)
 			{
-				if (copia[i].equals(dato))
+
+				if (copia[i].compareTo(dato)==0)
 				{
 					for (int j = i; j < copia.length - 1; j++) 
 					{
@@ -127,13 +129,11 @@ public class ArregloDinamico<T> implements IArregloDinamico<T> {
 		
 		public void invertir()
 		{
-			T[] copia=elementos;
-			elementos= (T[]) new Object[tamanoMax];
-			
-			for (int i=0; i<tamanoAct; i++)
+			T[]copia=elementos;
+			elementos=(T[])new Object[tamanoMax];
+			for(int i =0;i<tamanoAct;i++)
 			{
-				elementos[tamanoAct -1-i]=copia[i];
-				
+				elementos[tamanoAct-1-i]=copia[i];
 			}
 		}
 

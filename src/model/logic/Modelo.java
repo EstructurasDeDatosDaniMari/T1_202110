@@ -11,7 +11,7 @@ public class Modelo<T> {
 	/**
 	 * Atributos del modelo del mundo
 	 */
-	private IArregloDinamico<T> datos;
+	private IArregloDinamico datos;
 	
 	/**
 	 * Constructor del modelo del mundo con capacidad predefinida
@@ -45,7 +45,7 @@ public class Modelo<T> {
 	 */
 	public void agregar(T dato)
 	{	
-		datos.agregar(dato);
+		datos.agregar( (Comparable) dato);
 	}
 	
 	/**
@@ -55,7 +55,7 @@ public class Modelo<T> {
 	 */
 	public T buscar(T dato)
 	{
-		return (T) datos.buscar(dato);
+		return (T) datos.buscar( (Comparable) dato);
 	}
 	
 	/**
@@ -65,7 +65,7 @@ public class Modelo<T> {
 	 */
 	public T eliminar(T dato)
 	{
-		return (T) datos.eliminar(dato);
+		return (T) datos.eliminar( (Comparable) dato);
 	}
 
 	public String toString()
@@ -81,6 +81,11 @@ public class Modelo<T> {
 		
 		return fragmento;
 		
+	}
+	
+	public void invertir()
+	{	
+		datos.invertir();
 	}
 
 }
