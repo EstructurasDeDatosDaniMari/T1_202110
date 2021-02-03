@@ -79,7 +79,7 @@ public class ArregloDinamico<T> implements IArregloDinamico<T> {
 			boolean ya=false;
 			for (int i=0; i<tamanoAct && !ya; i++)
 			{
-				if (elementos[i].equals(dato))
+				if (elementos[i].compareTo(dato))
 				{
 					
 					elemento=elementos[i];
@@ -104,7 +104,7 @@ public class ArregloDinamico<T> implements IArregloDinamico<T> {
 		
 			for (int i=0; i< copia.length && !ya; i++)
 			{
-				if (copia[i].equals(dato))
+				if (copia[i].compareTo(dato))
 				{
 					for (int j = i; j < copia.length - 1; j++) 
 					{
