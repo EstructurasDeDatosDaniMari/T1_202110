@@ -6,9 +6,10 @@ package model.data_structures;
  * Estructura de Datos Arreglo Dinamico de Strings.
  * El arreglo al llenarse (llegar a su maxima capacidad) debe aumentar su capacidad.
  * @author Fernando De la Rosa
+ * @param <T>
  *
  */
-public class ArregloDinamico implements IArregloDinamico {
+public class ArregloDinamico<T> implements IArregloDinamico<T> {
 		/**
 		 * Capacidad maxima del arreglo
 		 */
@@ -20,7 +21,7 @@ public class ArregloDinamico implements IArregloDinamico {
         /**
          * Arreglo de elementos de tamaNo maximo
          */
-        private String elementos[ ];
+        private T elementos[];
 
         /**
          * Construir un arreglo con la capacidad maxima inicial.
@@ -28,18 +29,19 @@ public class ArregloDinamico implements IArregloDinamico {
          */
 		public ArregloDinamico( int max )
         {
-               elementos = new String[max];
+               elementos = (T[]) new Object[max];
                tamanoMax = max;
                tamanoAct = 0;
         }
         
-		public void agregar( String dato )
+		
+		public void agregar( T dato )
         {
                if ( tamanoAct == tamanoMax )
                {  // caso de arreglo lleno (aumentar tamaNo)
                     tamanoMax = 2 * tamanoMax;
-                    String [ ] copia = elementos;
-                    elementos = new String[tamanoMax];
+                    T [ ] copia = elementos;
+                    elementos = (T[])new Object[tamanoMax];
                     for ( int i = 0; i < tamanoAct; i++)
                     {
                      	 elementos[i] = copia[i];
@@ -58,7 +60,7 @@ public class ArregloDinamico implements IArregloDinamico {
 			return tamanoAct;
 		}
 
-		public String darElemento(int i) {
+		public T darElemento(int i) {
 			// TODO implementar
 			if (elementos[i].equals(null))
 			{
@@ -70,14 +72,14 @@ public class ArregloDinamico implements IArregloDinamico {
 			}
 		}
 
-		public String buscar(String dato) {
+		public T buscar(T dato) {
 			// TODO implementar
 			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
-			String elemento=null;
+			T elemento=null;
 			boolean ya=false;
 			for (int i=0; i<tamanoAct && !ya; i++)
 			{
-				if (elementos[i].compareTo(dato)==0)
+				if (elementos[i].equals(dato))
 				{
 					
 					elemento=elementos[i];
@@ -90,19 +92,19 @@ public class ArregloDinamico implements IArregloDinamico {
 			
 		}
 
-		public String eliminar(String dato) {
+		public T eliminar(T dato) {
 			
 			// TODO implementar
 			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
-			String elemento=null;
+			T elemento=null;
 			boolean ya=false;
 
-			String [ ] copia = elementos;
-			elementos= new String[tamanoMax];
+			T [ ] copia = elementos;
+			elementos= (T[])new Object[tamanoMax];
 		
 			for (int i=0; i< copia.length && !ya; i++)
 			{
-				if (copia[i].compareTo(dato)==0)
+				if (copia[i].equals(dato))
 				{
 					for (int j = i; j < copia.length - 1; j++) 
 					{
@@ -122,5 +124,7 @@ public class ArregloDinamico implements IArregloDinamico {
 			return elemento;
 			
 		}
+
+
 
 }

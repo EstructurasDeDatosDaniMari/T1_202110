@@ -6,7 +6,7 @@ import model.logic.Modelo;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestModelo {
+public class TestModelo<T> {
 	
 	private Modelo modelo;
 	private static int CAPACIDAD=100;
@@ -41,7 +41,7 @@ public class TestModelo {
 		
 		modelo.agregar(""+0);
 		assertEquals("No se agregó el elemento", 1,modelo.darTamano());
-		String elemento=modelo.buscar(""+0);
+		T elemento=(T) modelo.buscar(""+0);
 		assertNotNull("Debió haber encontrado el elemento", elemento);
 		// TODO Completar la prueba
 	}
@@ -49,7 +49,7 @@ public class TestModelo {
 	@Test
 	public void testBuscar() {
 		setUp2();
-		String elemento=modelo.buscar(""+0);
+		T elemento=(T) modelo.buscar(""+0);
 		assertNotNull( "Debió haber encontrado el elemento", elemento );
 		assertEquals("No se encontró el elemento correcto",  ""+0, elemento);
 		assertNull( "No debió haber encontrado el elemento", modelo.buscar("12345"));
@@ -60,7 +60,7 @@ public class TestModelo {
 	public void testEliminar() {
 		setUp2();
 		modelo.eliminar(""+0);
-		String elemento=modelo.buscar(""+0);
+		T elemento=(T) modelo.buscar(""+0);
 		assertNull("No debió haber encontrado ningún elemento", elemento);
 		assertNotEquals("No debió encontrar el elemento",""+0, elemento);
 		// TODO Completar la prueba

@@ -7,7 +7,7 @@ import model.data_structures.IArregloDinamico;
  * Definicion del modelo del mundo
  *
  */
-public class Modelo {
+public class Modelo<T> {
 	/**
 	 * Atributos del modelo del mundo
 	 */
@@ -43,7 +43,7 @@ public class Modelo {
 	 * Requerimiento de agregar dato
 	 * @param dato
 	 */
-	public void agregar(String dato)
+	public void agregar(T dato)
 	{	
 		datos.agregar(dato);
 	}
@@ -53,9 +53,9 @@ public class Modelo {
 	 * @param dato Dato a buscar
 	 * @return dato encontrado
 	 */
-	public String buscar(String dato)
+	public T buscar(T dato)
 	{
-		return datos.buscar(dato);
+		return (T) datos.buscar(dato);
 	}
 	
 	/**
@@ -63,9 +63,9 @@ public class Modelo {
 	 * @param dato Dato a eliminar
 	 * @return dato eliminado
 	 */
-	public String eliminar(String dato)
+	public T eliminar(T dato)
 	{
-		return datos.eliminar(dato);
+		return (T) datos.eliminar(dato);
 	}
 
 	public String toString()
